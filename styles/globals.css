@@ -11,6 +11,52 @@ body {
     text-wrap: balance;
   }
 }
+@layer utilities {
+  /* Mobile first responsive breakpoints */
+  @media (max-width: 640px) {
+    .mobile-only {
+      display: block;
+    }
+    .desktop-only {
+      display: none;
+    }
+  }
+
+  /* Tablet breakpoint */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .tablet-only {
+      display: block;
+    }
+  }
+
+  /* Desktop breakpoint */
+  @media (min-width: 1025px) {
+    .desktop-only {
+      display: block;
+    }
+    .mobile-only {
+      display: none;
+    }
+  }
+
+  /* Responsive font sizes */
+  .responsive-text {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+  }
+
+  /* Responsive padding */
+  .responsive-padding {
+    padding: clamp(1rem, 3vw, 3rem);
+  }
+
+  /* Responsive container */
+  .responsive-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+}
 
 @layer base {
   :root {

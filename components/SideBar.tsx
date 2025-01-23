@@ -1,13 +1,29 @@
-import { FaChevronDown, FaChevronRight, FaFolder, FaFolderOpen } from "react-icons/fa"
+import React from 'react'
+import { FaChevronDown, FaChevronRight } from "react-icons/fa"
+
+interface SidebarProps {
+  activeSection: string
+  setActiveSection: (section: string) => void
+  activeFile: string
+  setActiveFile: (file: string) => void
+  expandedFolders: {
+    'personal-info': boolean
+    'projects': boolean
+    'education': boolean
+  }
+  setExpandedFolders: React.Dispatch<React.SetStateAction<{
+    'personal-info': boolean
+    'projects': boolean
+    'education': boolean
+  }>>
+}
 
 export default function Sidebar({
-  activeSection,
-  setActiveSection,
   activeFile,
   setActiveFile,
   expandedFolders,
   setExpandedFolders,
-}) {
+}: SidebarProps) {
   const toggleFolder = (folder: string) => {
     setExpandedFolders((prev) => ({
       ...prev,
@@ -109,4 +125,3 @@ export default function Sidebar({
     </div>
   )
 }
-

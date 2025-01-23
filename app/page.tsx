@@ -1,10 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { FaChevronDown, FaChevronRight, FaFolder, FaFolderOpen } from "react-icons/fa"
-import Sidebar from "@/components/Sidebar"
+import Sidebar from "@/components/SideBar"
 import MainContent from "@/components/MainContent"
 import TopBar from "@/components/TopBar"
+
+import React from 'react'
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("_hello")
@@ -48,4 +49,3 @@ export default function Home() {
     </div>
   )
 }
-

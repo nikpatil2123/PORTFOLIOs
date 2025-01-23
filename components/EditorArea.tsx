@@ -12,41 +12,52 @@ const tabs = [
   { name: "contact", label: "contact.tsx", icon: FaFileAlt },
 ]
 
-export default function EditorArea({ activeSection, setActiveSection, openTabs, setOpenTabs }) {
+import React from 'react'
+
+interface EditorAreaProps {
+  activeSection: string
+  setActiveSection: (section: string) => void
+  openTabs: string[]
+  setOpenTabs: React.Dispatch<React.SetStateAction<string[]>>
+}
+
+export default function EditorArea({ activeSection, setActiveSection, openTabs, setOpenTabs }: EditorAreaProps) {
   useEffect(() => {
     if (!openTabs.includes(activeSection)) {
-      setOpenTabs((prev) => [...prev, activeSection])
+      setOpenTabs((prev: string[]) => [...prev, activeSection])
     }
   }, [activeSection, openTabs, setOpenTabs])
 
-  const closeTab = (tab) => {
-    setOpenTabs((prev) => prev.filter((t) => t !== tab))
+  const closeTab = (tab: string) => {
+    setOpenTabs((prev: string[]) => prev.filter((t: string) => t !== tab))
     if (activeSection === tab) {
-      setActiveSection(openTabs.find((t) => t !== tab) || "home")
+      setActiveSection(openTabs.find((t: string) => t !== tab) || "home")
     }
   }
 
   return (
     <div className="flex-grow flex flex-col overflow-hidden">
-      <div className="flex bg-vscode-editorGroupHeader overflow-x-auto">
-        {openTabs.map((tab) => {
+      <div className="flex flex-wrap bg-vscode-editorGroupHeader overflow-x-auto">
+        {openTabs.map((tab: string) => {
           const tabInfo = tabs.find((t) => t.name === tab)
+          if (!tabInfo) return null
           return (
             <button
               key={tab}
               onClick={() => setActiveSection(tab)}
-              className={`flex items-center px-3 py-2 text-sm ${
+              className={`flex items-center px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm ${
                 activeSection === tab
                   ? "bg-vscode-tab text-vscode-tabActiveText"
                   : "bg-vscode-editorGroupHeader text-vscode-tabInactiveText"
               }`}
             >
-              <tabInfo.icon className="mr-2" size={14} />
-              {tabInfo.label}
+              <tabInfo.icon className="mr-1 sm:mr-2" size={12} />
+              <span className="hidden sm:inline">{tabInfo.label}</span>
+              <span className="inline sm:hidden">{tabInfo.label.split('.')[0]}</span>
               <FaTimes
-                className="ml-2 opacity-0 hover:opacity-100"
-                size={14}
-                onClick={(e) => {
+                className="ml-1 sm:ml-2 opacity-50 hover:opacity-100 sm:opacity-0 sm:hover:opacity-100"
+                size={12}
+                onClick={(e: React.MouseEvent) => {
                   e.stopPropagation()
                   closeTab(tab)
                 }}
@@ -55,7 +66,7 @@ export default function EditorArea({ activeSection, setActiveSection, openTabs, 
           )
         })}
       </div>
-      <div className="flex-grow overflow-auto bg-vscode-editor p-4">
+      <div className="flex-grow overflow-auto bg-vscode-editor p-2 sm:p-4">
         {activeSection === "home" && <Home />}
         {activeSection === "projects" && <Projects />}
         {activeSection === "skills" && <Skills />}
@@ -64,4 +75,3 @@ export default function EditorArea({ activeSection, setActiveSection, openTabs, 
     </div>
   )
 }
-

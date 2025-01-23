@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 body {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 @layer utilities {
@@ -11,6 +13,7 @@ body {
     text-wrap: balance;
   }
 }
+
 @layer utilities {
   /* Mobile first responsive breakpoints */
   @media (max-width: 640px) {
@@ -20,12 +23,18 @@ body {
     .desktop-only {
       display: none;
     }
+    .responsive-container {
+      padding: 0 0.75rem;
+    }
   }
 
   /* Tablet breakpoint */
   @media (min-width: 641px) and (max-width: 1024px) {
     .tablet-only {
       display: block;
+    }
+    .responsive-container {
+      padding: 0 1.5rem;
     }
   }
 
@@ -41,20 +50,32 @@ body {
 
   /* Responsive font sizes */
   .responsive-text {
-    font-size: clamp(1rem, 2.5vw, 2rem);
+    font-size: clamp(0.875rem, 2vw, 2rem);
+    line-height: 1.5;
   }
 
   /* Responsive padding */
   .responsive-padding {
-    padding: clamp(1rem, 3vw, 3rem);
+    padding: clamp(0.75rem, 3vw, 3rem);
   }
 
   /* Responsive container */
   .responsive-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+  }
+
+  /* Responsive grid */
+  .responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+  }
+
+  /* Safe viewport units */
+  .viewport-height {
+    height: 100vh;
+    height: 100dvh;
   }
 }
 
@@ -94,6 +115,7 @@ body {
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -128,6 +150,12 @@ body {
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  @media (max-width: 640px) {
+    :root {
+      --radius: 0.375rem;
+    }
+  }
 }
 
 @layer base {
@@ -136,5 +164,12 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }

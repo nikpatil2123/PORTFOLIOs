@@ -44,12 +44,14 @@ const DrawerContent = React.forwardRef<
       ref={ref}
       className={cn(
         "fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-[10px] border bg-background",
+        "max-h-[85vh] w-full md:max-w-[600px] md:mx-auto lg:max-w-[800px]",
+        "transition-transform duration-300 ease-in-out",
         className
       )}
       {...props}
     >
       <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
-      {children}
+      <div className="overflow-y-auto px-4 py-6">{children}</div>
     </DrawerPrimitive.Content>
   </DrawerPortal>
 ))
@@ -71,7 +73,7 @@ const DrawerFooter = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn("mt-auto flex flex-col gap-2 p-4", className)}
+    className={cn("mt-auto flex flex-col gap-2 p-4 sticky bottom-0 bg-background", className)}
     {...props}
   />
 )
@@ -84,7 +86,7 @@ const DrawerTitle = React.forwardRef<
   <DrawerPrimitive.Title
     ref={ref}
     className={cn(
-      "text-lg font-semibold leading-none tracking-tight",
+      "text-lg font-semibold leading-none tracking-tight md:text-xl lg:text-2xl",
       className
     )}
     {...props}
@@ -98,7 +100,7 @@ const DrawerDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Description
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-sm text-muted-foreground md:text-base", className)}
     {...props}
   />
 ))

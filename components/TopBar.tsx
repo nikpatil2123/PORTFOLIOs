@@ -24,14 +24,15 @@ export default function TopBar({ activeSection, setActiveSection }: TopBarProps)
   }, [])
 
   return (
-    <header className="bg-[#011627] border-b border-[#1E2D3D]">
-      <div className="flex items-center justify-between h-[60px] px-4">
-        <div className="text-[#4fd1c5]">nikhil-patil</div>
+    <header className="bg-[#011627] border-b border-[#1E2D3D] fixed w-full top-0 z-50">
+      <div className="flex items-center justify-between h-[60px] px-4 max-w-7xl mx-auto">
+        <div className="text-[#4fd1c5] text-lg sm:text-xl">nikhil-patil</div>
         
         {/* Mobile menu button */}
         <button 
-          className="md:hidden text-[#607B96] hover:text-[#4fd1c5]"
+          className="md:hidden text-[#607B96] hover:text-[#4fd1c5] focus:outline-none"
           onClick={toggleMenu}
+          aria-label="Toggle menu"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -39,7 +40,11 @@ export default function TopBar({ activeSection, setActiveSection }: TopBarProps)
         </button>
 
         {/* Desktop navigation */}
-        <nav className={`md:flex ${isMenuOpen ? 'absolute top-[60px] left-0 right-0 flex flex-col bg-[#011627] border-b border-[#1E2D3D]' : 'hidden'} md:relative md:top-0 md:border-none`}>
+        <nav className={`md:flex ${
+          isMenuOpen 
+            ? 'absolute z-100 top-[60px] left-0 right-0 flex flex-col bg-[#011627] border-b border-[#1E2D3D] shadow-lg animate-fadeIn'
+            : 'hidden'
+        } md:relative md:top-0 md:border-none md:shadow-none md:animate-none`}>
           {["_hello", "_about-me", "_projects", "_contact-me"].map((item) => (
             <button
               key={item}
@@ -47,9 +52,10 @@ export default function TopBar({ activeSection, setActiveSection }: TopBarProps)
                 setActiveSection(item)
                 setIsMenuOpen(false)
               }}
-              className={`px-6 py-4 hover:text-[#4fd1c5] border-b-2 transition-colors w-full md:w-auto text-left ${
-                activeSection === item ? "text-[#4fd1c5] border-[#4fd1c5]" : "border-transparent text-[#607B96]"
-              }`}
+              className={`px-6 py-4 hover:text-[#4fd1c5] border-b-2 transition-colors w-full md:w-auto text-left
+                ${activeSection === item ? "text-[#4fd1c5] border-[#4fd1c5]" : "border-transparent text-[#607B96]"}
+                hover:bg-[#1E2D3D] md:hover:bg-transparent transition-all duration-200
+              `}
             >
               {item}
             </button>

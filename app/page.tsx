@@ -28,7 +28,7 @@ export default function Home() {
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />
       {/* Main content area with responsive layout */}
-      <div className="flex flex-col md:flex-row flex-1">
+      <div className="flex flex-col md:flex-row flex-1 mt-[64px]">
         {/* Sidebar with mobile toggle */}
         <div className={`
           ${isMobileMenuOpen ? 'block' : 'hidden'}

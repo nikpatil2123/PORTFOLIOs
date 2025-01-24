@@ -30,7 +30,9 @@ const projects = [
 
 export default function Projects() {
 	return (
-		<div className="container mx-auto px-4 py-8 relative z-10">
+		<div className="container mx-auto px-4 py-8 relative z-[-1.5px] ">
+					{/* // <div className="container mx-auto px-4 py-8 relative z-0 "> */}
+
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{projects.map((project) => (
 					<div key={project.id} className="bg-[#011627] rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
@@ -39,7 +41,7 @@ export default function Projects() {
 								<span className="text-[#e99287] text-sm sm:text-base font-semibold">Project {project.id}</span>
 								<span className="text-gray-500 ml-2 text-sm sm:text-base">{`// ${project.title}`}</span>
 							</div>
-							<div className="mb-4 relative aspect-video">
+							<div className="mb-4 relative aspect-video z-0">
 								<Image
 									src={project.image || "/placeholder.svg"}
 									alt={project.title}

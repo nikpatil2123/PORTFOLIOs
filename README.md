@@ -1,4 +1,4 @@
-# Improved Portfolio
+# Devlopers Portfolio
 
 This project is a personal portfolio website built using modern web technologies. It showcases the skills, projects, and experiences of Nikhil Patil, a passionate frontend developer.
 

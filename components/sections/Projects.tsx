@@ -3,12 +3,15 @@ import Image from "next/image"
 import Mrn from "./MERNCRUD.png"
 import gw from "./gwnotifer.png"
 import pim from "./PIM.png"
-
+import nike from "./nike.png"
+import spin from "./spin.png"
+// import p6 from "./bloodlink.png"
+import p6 from "./connect.png"
 const projects = [
 	{
 		id: 1,
 		title: "Inventory Management System",
-		description: "A clone of the Just Eat website built with React and Tailwind CSS.",
+		description: "MERN app for inventory management.",
 		image: pim,
 		github: "https://github.com/nikpatil2123/product-inventory-api",
 	},
@@ -25,6 +28,24 @@ const projects = [
 		description: "Get your Gmail notifications on Whatsapp.",
 		image: gw,
 		github: "https://github.com/nikpatil2123/gmail-whatsapp-notifier",
+	},
+	{
+		id: 4,
+		title: "Nike CLone",
+		description: "Nike website clone with custom design.",
+		image: nike,
+	},
+	{
+		id: 5,
+		title: "Spin-wheel",
+		description: "Interactive spin wheel with custom labels.",
+		image: spin,
+	},
+	{
+		id: 6,
+		title: "LifeLine Connect",
+		description: "Smart platform for seamless blood donation",
+		image: p6,
 	},
 ]
 

@@ -34,18 +34,21 @@ const projects = [
 		title: "Nike CLone",
 		description: "Nike website clone with custom design.",
 		image: nike,
+		github: "https://github.com/nikpatil2123/Nike_CLone",
 	},
 	{
 		id: 5,
 		title: "Spin-wheel",
 		description: "Interactive spin wheel with custom labels.",
 		image: spin,
+		github: "https://github.com/nikpatil2123/Spin-wheel-Game",
 	},
 	{
 		id: 6,
 		title: "LifeLine Connect",
 		description: "Smart platform for seamless blood donation",
 		image: p6,
+		github: "https://github.com/nikpatil2123/Hackathon",
 	},
 ]
 

@@ -50,11 +50,16 @@ export default function AboutMe() {
 								<div key={i} className="flex group hover:bg-[#333333] transition-colors duration-150">
 									<span className="w-8 text-gray-500 opacity-50">{i + 1}</span>
 									{i === 0 && <span className="text-gray-400">/**</span>}
-									{i === 1 && <span className="text-gray-400"> * About Nikhil Patil</span>}
+									{i === 1 && <><pre className="text-[#76c7c0]">* </pre><span className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">  About Nikhil Patil</span></>}
+									
 									{i === 2 && <span className="text-[#76c7c0]"> * Welcome to my portfolio!</span>}
 									{i === 3 && <span className="text-gray-400"> * </span>}
 									{i === 4 && <span className="text-[#76c7c0]"> * [Diploma] Computer Science Engineering</span>}
-									{i === 5 && <span className="text-[#76c7c0]"> * Currently pursuing B.Tech in Computer Science.</span>}
+									{i === 5 && (
+										<span className="text-[#76c7c0]">
+											* Currently pursuing <span className="text-[#A9D6E5] font-bold">B.Tech in Computer Science Engineering</span>.
+										</span>
+									)}
 									{i === 6 && <span className="text-gray-400"> * </span>}
 									{i === 7 && (
 										<span className="text-[#76c7c0]">
@@ -68,26 +73,30 @@ export default function AboutMe() {
 									)}
 									{i === 9 && <span className="text-gray-400"> * </span>}
 									{i === 10 && (
-										<span className="text-[#76c7c0]"> * I am currently learning Full Stack Development to expand my skill set.</span>
+										<span className="text-[#76c7c0]"> * I am currently learning <span className="text-[#A9D6E5] font-bold">Full Stack Development</span> to expand my skill set.</span>
 									)}
 									{i === 11 && (
 										<span className="text-[#76c7c0]">
-											* Technologies I've learned: HTML, CSS, SCSS, JAVASCRIPT, REACT (JSX and Redux),
+											* Technologies I've learned: <span className="text-[#A9D6E5] font-bold">HTML, CSS, SCSS, JavaScript, React (JSX and Redux),</span>
 										</span>
 									)}
-									{i === 12 && <span className="text-[#76c7c0]"> * NODE, Tailwind CSS, and Bootstrap.</span>}
+									{i === 12 && <span className="text-[#76c7c0]"> * <span className="text-[#A9D6E5] font-bold">Node, Tailwind CSS, and Bootstrap</span>.</span>}
 									{i === 13 && <span className="text-gray-400"> * </span>}
 									{i === 14 && (
 										<span className="text-[#76c7c0]">
-											* My goal is to contribute to impactful projects, leveraging my skills to
+											* My mission is to build <span className="text-[#A9D6E5] font-bold">innovative solutions</span> that simplify everyday challenges,
 										</span>
 									)}
 									{i === 15 && (
-										<span className="text-[#76c7c0]"> * create intuitive, engaging, and efficient web applications.</span>
+										<span className="text-[#76c7c0]">
+											* Fueling <span className="text-[#A9D6E5] font-bold">engaging user experiences</span> with robust, clean code.
+										</span>
 									)}
 									{i === 16 && <span className="text-gray-400"> * </span>}
 									{i === 17 && (
-										<span className="text-[#76c7c0]"> * I believe in lifelong learning and continuously strive to improve myself.</span>
+										<span className="text-[#76c7c0]">
+											* I am dedicated to <span className="text-[#A9D6E5] font-bold">continuous growth</span> and seizing every opportunity to refine my skills.
+										</span>
 									)}
 									{i === 18 && <span className="text-gray-400"> * </span>}
 									{i === 19 && (
@@ -96,7 +105,7 @@ export default function AboutMe() {
 										</span>
 									)}
 									{i === 20 && (
-										<span className="text-[#76c7c0]"> * experience in React.js and Tailwind CSS, sharpening my development skills.</span>
+										<span className="text-[#76c7c0]"> * experience in <span className="text-[#A9D6E5] font-bold">React.js and Tailwind CSS</span>, sharpening my development skills.</span>
 									)}
 									{i === 26 && <span className="text-gray-400"> */</span>}
 								</div>

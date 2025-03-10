@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HireMeForm from './Hireme';
+// import HireMeForm from './Hireme';
 
 export default function Hello() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -57,19 +57,19 @@ export default function Hello() {
           </div>
         </div>
 
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <button
             onClick={() => setIsFormOpen(true)}
             className="px-6 py-3 bg-[#4fd1c5] text-white rounded-lg hover:bg-[#3ab3a8] transition-colors font-mono text-sm md:text-base"
           >
             Hire Me
           </button>
-        </div>
+        </div> */}
 
-        <HireMeForm
+        {/* <HireMeForm
           isOpen={isFormOpen}
           onClose={() => setIsFormOpen(false)}
-        />
+        /> */}
       </div>
     </div>
   );

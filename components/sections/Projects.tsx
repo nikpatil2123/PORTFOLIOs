@@ -6,6 +6,7 @@ import pim from "./PIM.png"
 import nike from "./nike.png"
 import spin from "./spin.png"
 // import p6 from "./bloodlink.png"
+import mess from "./message.png"
 import p6 from "./connect.png"
 const projects = [
 	{
@@ -50,6 +51,13 @@ const projects = [
 		image: p6,
 		github: "https://github.com/nikpatil2123/Hackathon",
 	},
+	{
+		id: 7,
+		title: "Secure Chat App",
+		description: "secure chat app using mern stack with AES-256 Encryption",
+		image: mess,
+		github: "https://github.com/nikpatil2123/chat_app",
+	}
 ]
 
 export default function Projects() {
